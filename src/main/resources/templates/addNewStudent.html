@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>New Student</title>
+    <link rel="styleSheet" href="/styles/styles.css">
+</head>
+<body>
+<h1>Add Student</h1>
+<div id="addStudentTable">
+    <!-- Form to edit student -->
+    <form >
+        <label for="sName">Name:</label>
+        <input id="sName" name="name"  required><br>
+
+        <label for="sEmail">Email:</label>
+        <input id="sEmail" name="email"  required><br>
+
+		<label for="sDept">Department:</label>
+		<select id="sDept" name="department"  required>
+			<option value="EEE">Electrical</option>
+			<option value="MECH">Mechanical</option>
+			<option value="ECE">Electronics</option>
+			<option value="CSE">Computers</option>
+			<option value="CIVIL">Civil</option>
+		</select><br>
+		
+		
+		<label for="sPhone">Phone Number:</label>
+		<input id="sPhone" name="phone number"  required><br>
+		
+		
+		<br>
+        <!-- You can add more fields as needed (e.g., phone, address, etc.) -->
+        <a th:href="@{/home}">
+		Back
+    				</a>
+        <button type="button" onclick="addStudent()">Add Student</button>
+    </form>
+</div>
+<script type="text/javascript" src="/js/addStudent.js"></script>
+</body>
+</html>

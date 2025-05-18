@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Marks Sheet</title>
+<link rel="stylesheet" href="/styles/styles.css">
+</head>
+<body>
+<input type="hidden" th:value="${subjects.size()}" id="subLength">
+<input type="hidden" th:value="${student.studentId}" id="studentId">
+<h1>Marks Sheet</h1>
+<p>Student Name: <strong><span th:text="${student.name}"></span></strong></p>
+<p>Student ID: <strong><span th:text="${student.studentId}"></span></strong></p>
+<div id="addMarks">
+    	<table border ="1" class="tftable">
+    		<thead>
+    			<th>Subject</th>
+    			<th>Marks</th>
+    		</thead>
+    		<tbody th:each="subject: ${subjects}">
+    			<tr>
+    				<td  th:text="${subject.subjectName}"></td>
+    				<td >
+    				<input th:id="${subject.subjectId}"  type="text" class="marksFld" maxlength="2">
+    				</td>
+    			</tr>
+    		</tbody>
+    	
+    	</table>
+    	<br>
+    	<button type="button" onclick="addMarks()">Submit</button>
+    </div>
+    
+    <script type="text/javascript" src ="/js/viewAddMarks.js"></script>
+</body>
+</html>

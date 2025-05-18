@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Student</title>
+    <link rel="styleSheet" href="/styles/styles.css">
+</head>
+<body>
+<h1>Edit Student</h1>
+<div id="editStudentTable">
+    <!-- Form to edit student -->
+    <form >
+        <label for="sName">Name:</label>
+        <input id="sName" name="name" th:value="${student.name}" required><br>
+
+        <label for="sEmail">Email:</label>
+        <input id="sEmail" name="email" th:value="${student.email}" required><br>
+
+		<label for="sDept">Department:</label>
+		<!-- input id="sDept" name="department" th:value="${student.dept}" required-->
+		<select id="sDept" name="department" th:value="${student.dept}" required>
+			<option value="EEE">Electrical</option>
+			<option value="MECH">Mechanical</option>
+			<option value="ECE">Electronics</option>
+			<option value="CSE">Computers</option>
+			<option value="CIVIL">Civil</option>
+		</select>
+		<br>
+		
+		
+		<label for="sPhone">Phone Number:</label>
+		<input id="sPhone" name="phone number" th:value="${student.phone}" required><br>
+		
+		<input id="sId" type="hidden" th:value="${student.studentId}"><br>
+		
+		<br>
+        <!-- You can add more fields as needed (e.g., phone, address, etc.) -->
+        <a th:href="@{/home}">
+		Back
+    				</a>
+        <button type="button" onclick="updateStudent()">Update Student</button>
+    </form>
+</div>
+<script type="text/javascript" src="/js/updateStudent.js"></script>
+</body>
+</html>

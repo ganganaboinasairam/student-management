@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Marks Sheet</title>
+<link rel="stylesheet" href="/styles/styles.css">
+</head>
+<body>
+<input type="hidden" th:value="${marksSheets[0].studentId}" id="studentId">
+<h1>Marks Sheet</h1>
+<p>Student Name: <strong><span th:text="${marksSheets[0].studentName}"></span></strong></p>
+<p>Student ID: <strong><span th:text="${marksSheets[0].studentId}"></span></strong></p>
+<div id="marksView">
+    	<table border ="1" class="tftable">
+    		<thead>
+    			<th>Subject</th>
+    			<th>Marks</th>
+    		</thead>
+    		<tbody>
+    			<tr th:each="marksSheet : ${marksSheets}">
+    				<td th:text="${marksSheet.subjectName}"></td>
+    				<td><input th:id="${marksSheet.subjectId}" th:value="${marksSheet.marks}" class="marksFld" maxlength="2" readonly></td>
+    			</tr>
+    		</tbody>
+    	
+    	</table>
+    </div>
+    
+    <br>
+    <a th:href="@{/home}">Back</a>
+    <button onclick="unhideSbmt()" id="updtMrksBtn">Update mark Sheet</button>
+    <button style="display:none" id="updtMrksBtnSmbt" onclick="updateMarks()">Submit</button>
+    <script type="text/javascript" src ="/js/viewAddMarks.js"></script>
+</body>
+</html>

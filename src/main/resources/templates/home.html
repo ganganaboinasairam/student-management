@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+<link rel="stylesheet" href="/styles/styles.css">
+</head>
+<body>
+    <h1>Student Details</h1> <!-- Displays "Sairam" -->
+    <a type="button" href="../addNewStudent">Add New Student</a><br><br>
+    <div id="studentTable">
+    	<table border ="1" class="tftable">
+    		<thead>
+    			<th>ID</th>
+    			<th>Name</th>
+    			<th>Email</th>
+    			<th>Department</th>
+    			<th>Phone</th>
+    			<th>Action</th>
+    		</thead>
+    		<tbody>
+    			<tr th:each="student : ${students}">
+    				<td th:text="${student.studentId}"></td>
+    				<td th:text="${student.name}"></td>
+    				<td th:text="${student.email}"></td>
+    				<td th:text="${student.dept}"></td>
+    				<td th:text="${student.phone}"></td>
+    				<td style="text-align: center;width:20%">
+    				<a th:href="@{/editStudent/{id}(id=${student.studentId})}">
+    				Edit
+    				</a>
+    				<a href="#" th:onclick="deleteStudent('[[${student.studentId}]]')">Delete</a>
+    				<a th:href="@{/viewMarks/{id}(id=${student.studentId})}">Marks Sheet</a>
+    				
+    				</td>
+    			</tr>
+    		</tbody>
+    	
+    	</table>
+    </div>
+    <script type="text/javascript" src ="/js/home.js"></script>
+</body>
+</html>
