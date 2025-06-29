@@ -6,9 +6,10 @@
 
 
  function deleteStudent(id){
-	 //alert(id);
 	 
-	 url = "../api/student/delete/"+id;
+	 if (confirm("Are you sure you want to delete this student?")) {
+		  // User clicked "OK"
+		   url = "../api/student/delete/"+id;
 	 
 	 fetch(url,{
 		 method:"DELETE",
@@ -29,4 +30,10 @@
 		 console.log("Error", error);
 		 alert("Failed to delete record");
 	 })
+		} else {
+		  // User clicked "Cancel"
+		  console.log("Deletion cancelled");
+		}
+	 
+	
  }

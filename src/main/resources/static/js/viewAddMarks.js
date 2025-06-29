@@ -73,6 +73,7 @@
   function updateMarks(){
 	 var subjectId ;
 	 var marks;
+	 var marksId;
 	 const studentId = document.getElementById("studentId").value;
 	 var data = [];
 	 var subData = {};
@@ -85,11 +86,13 @@
 	 subData = {};
 		 subjectId = field.id;
 		 marks = field.value;
+		 marksId = field.getAttribute('mid');
 		 
 		 subData={
 			 subjectId:subjectId,
 			 marks:marks,
-			 studentId:studentId
+			 studentId:studentId,
+			 marksId :marksId
 		 }
 	 data.push(subData);
 	 }

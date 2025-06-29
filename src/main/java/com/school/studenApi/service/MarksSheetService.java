@@ -74,6 +74,10 @@ public class MarksSheetService {
 	}
 
 	public String updateMarksSheet(List<MarksSheetDTO> requestList) {
+//		if (requestList.isEmpty()) return "No records to update";
+//		Long studentId = requestList.get(0).getStudentId();
+//		System.out.println("student ID"+studentId);
+//		marksSheetRepository.deleteById(studentId);
 		// TODO Auto-generated method stub
 		for (MarksSheetDTO request : requestList) {
 			
@@ -84,6 +88,14 @@ public class MarksSheetService {
 	        // 2. Fetch Subject
 	        Subject subject = subjectRepository.findById(request.getSubjectId())
 	                .orElseThrow(() -> new RuntimeException("Subject not found"));
+	        
+	       Long markId =  request.getMarksId();
+	       
+	       System.out.println("marks id "+markId);
+	       
+	       marksSheetRepository.deleteById(markId);
+	       
+	        
 			// 3. Create new MarksSheet
 	        MarksSheet marksSheet = new MarksSheet();
 	        marksSheet.setMarks(request.getMarks());
@@ -97,9 +109,9 @@ public class MarksSheetService {
 	        return "Marks Record updated sucessfully";
 	}
 
-	public String deletemarksSheet(Long studentId) {
+	public String deletemarksSheet(Long student) {
 		// TODO Auto-generated method stub
-		marksSheetRepository.deleteById(studentId);
+		marksSheetRepository.deleteById(student);
 		return null;
 	}
 

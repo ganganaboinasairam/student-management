@@ -19,7 +19,8 @@
     		<tbody>
     			<tr th:each="marksSheet : ${marksSheets}">
     				<td th:text="${marksSheet.subjectName}"></td>
-    				<td><input th:id="${marksSheet.subjectId}" th:value="${marksSheet.marks}" class="marksFld" maxlength="2" readonly></td>
+    				<td>
+    				<input th:id="${marksSheet.subjectId}" th:value="${marksSheet.marks}" th:mId="${marksSheet.marksId}" class="marksFld" maxlength="2" readonly></td>
     			</tr>
     		</tbody>
     	

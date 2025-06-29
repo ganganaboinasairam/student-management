@@ -15,6 +15,7 @@ import com.school.studenApi.model.Student;
 import com.school.studenApi.model.Subject;
 import com.school.studenApi.service.MarksSheetService;
 import com.school.studenApi.service.StudentService;
+import com.school.studenApi.service.SubjectService;
 
 @Controller
 @RequestMapping("/")
@@ -22,6 +23,9 @@ public class HomeController {
 	
 	@Autowired
 	private StudentService studentService;
+	
+	@Autowired
+	private SubjectService subjectService;
 	
 	@Autowired
 	private MarksSheetService marksSheetService;
@@ -43,6 +47,13 @@ public class HomeController {
 		}else {
 			return "redirect:/error";
 		}
+	}
+	
+	@GetMapping("/subjectList")
+	public String subjectList (Model model) {
+		List<Subject> subject = subjectService.getAllSubjects();
+		model.addAttribute("subjects", subject);
+		return "subjectList";
 	}
 	
 	@GetMapping("/addNewStudent")
