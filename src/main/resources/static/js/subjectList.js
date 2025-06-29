@@ -17,7 +17,7 @@ document.getElementById("subjectForm").addEventListener("submit", function(e) {
 
   // You can send this via fetch or AJAX to your backend
   console.log("Subject to submit:", subjectName);
-
+ 
   // Clear input and hide modal
   document.getElementById("subjectName").value = "";
   hideForm();

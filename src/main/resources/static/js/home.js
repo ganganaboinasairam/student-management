@@ -1,9 +1,13 @@
 /**
- * 
+ *
  */
 
+function deleteStudent(id) {
+  //alert(id);
 
+  url = "../api/student/delete/" + id;
 
+<<<<<<< HEAD
 
  function deleteStudent(id){
 	 
@@ -37,3 +41,25 @@
 	 
 	
  }
+=======
+  fetch(url, {
+    method: "DELETE",
+  })
+    .then((response) => {
+      if (response.ok) {
+        return response.json().catch(() => ({}));
+      } else {
+        throw new Error("Network response is not ok");
+      }
+    })
+    .then((data) => {
+      console.log("sucess: ", data);
+      alert("Record deleted sucessfully");
+      location.reload();
+    })
+    .catch((error) => {
+      console.log("Error", error);
+      alert("Failed to delete record");
+    });
+}
+>>>>>>> 27eea36b8c3deac38aef936d65a1434def9e599b
