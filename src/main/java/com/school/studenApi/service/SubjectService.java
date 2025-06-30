@@ -17,6 +17,17 @@ public class SubjectService {
 	 public List<Subject> getAllSubjects() {
 	        return subjectRepository.findAll();
 	    }
+	 
+	 public String addSubject(Subject subject) {
+		 try {
+			subjectRepository.save(subject);
+			 return "Subject added successfully";
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return "Somthing went wrong, subject is not added";
+		}
+	 }
 	
 	
 
